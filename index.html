@@ -12,12 +12,13 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
 </head>
 
 <body class="font-poppins text-gray-600">
     <!-- navbar -->
-    <nav class="shadow-sm">
-        <div class="container px-4 mx-auto flex items-center py-3">
+    <nav class="top-bar bg-gray-50 fixed top-0 left-0 right-0 z-index-1">
+        <div class="wrapper px-4 mx-auto flex justify-between  items-center py-3">
             <!-- logo -->
             <div class="lg:w-44 w-40">
                 <a href="index.html">
@@ -26,43 +27,20 @@
             </div>
             <!-- logo end -->
 
-            <!-- navlinks -->
-            <div class="ml-12 lg:flex space-x-5  hidden">
-                <a href="#"
-                    class="flex items-center font-semibold text-sm  transition hover:text-blue-500">
-                    <span class="mr-2">
-                        <i class="fas fa-home"></i>
-                    </span>
-                    Home
-                </a>
-                <a href="#"
-                    class="flex items-center font-semibold text-sm  transition hover:text-blue-500">
-                    <span class="mr-2">
-                        <i class="far fa-file-alt"></i>
-                    </span>
-                    About
-                </a>
-                <a href="#"
-                    class="flex items-center font-semibold text-sm  transition hover:text-blue-500">
-                    <span class="mr-2">
-                        <i class="fas fa-phone"></i>
-                    </span>
-                    Contact
-                </a>
-            </div>
-            <!-- navlinks end -->
-
             <!-- searchbar -->
-            <div class="relative lg:ml-auto hidden lg:block">
-                <span class="absolute left-3 top-2 text-sm text-gray-500">
-                    <i class="fas fa-search"></i>
-                </span>
+            <div class="relative h-9 md:block w-5/12">
                 <input type="text"
-                    class="block w-full shadow-sm border-none rounded-3xl  pl-11 pr-2 py-2 focus:outline-none bg-gray-50 text-sm text-gray-700 placeholder-gray-500"
+                    class="block w-full shadow border-none rounded  pr-11 pl-4 py-2 focus:outline-none bg-gray-50 text-sm text-gray-700 placeholder-gray-500"
                     placeholder="Search">
-            </div>
-            <div class="lg:ml-5 ml-auto">
-                <a href="#"
+                    <button class="absolute right-0 top-0 h-5/6 w-10">
+                        <span class=" text-sm text-gray-500">
+                             <i class="fas fa-search"></i>
+                         </span>
+                    </button>
+            </div> 
+            <div class="flex">
+         
+                <a href="#" id="login-button"
                     class=" text-sm  font-semibold hover:text-blue-500 transition flex items-center">
                     <span class="mr-2">
                         <i class="far fa-user"></i>
@@ -73,17 +51,17 @@
                 <i class="fas fa-bars"></i>
             </div>
             <!-- searchbar end -->
-
         </div>
     </nav>
 
     <!-- main -->
-    <main class="pt-12 bg-gray-100 pb-12">
-        <div class="container mx-auto px-4 flex flex-wrap lg:flex-nowrap">
+    <main class="bg-gray-100">
+       <section class="full-content">
+        <div class="wrapper mx-auto px-4 flex flex-wrap lg:flex-nowrap">
             <!-- left sidebar -->
-            <div class="w-3/12 hidden xl:block">
+            <div class="w-3/12 xl:block hidden left-sidebar">
                 <!-- Social plugin -->
-                <div class="w-full bg-white shadow-sm rounded-sm p-4 ">
+                <div class="w-full bg-white shadow-sm rounded-sm p-4">
                     <h3 class="text-xl font-semibold text-gray-700 mb-3 font-roboto">Social Plugin</h3>
                     <div class="flex gap-2">
                         <a href="#"
@@ -221,20 +199,20 @@
             </div>
 
             <!-- Main content -->
-            <div class="xl:w-6/12 lg:w-9/12 w-full  xl:ml-6 lg:mr-6">
+            <div class="xl:w-6/12 lg:w-8/12 md:w-7/12  w-full   xl:ml-6 lg:pr-3 md:pr-3 lg:mr-3 main-content">
 
                 <!-- title -->
-                <div class="flex bg-white px-3 py-2 justify-between items-center rounded-sm mb-5">
+                <div class="flex bg-white px-3 py-2 justify-between items-center rounded-sm">
                     <h5 class="text-base uppercase font-semibold font-roboto">BUSINESS</h5>
                     <a href="#"
-                        class="text-white py-1 px-3 rounded-sm uppercase text-sm bg-blue-500 border border-blue-500 hover:text-blue-500 hover:bg-transparent transition">
+                        class="text-white py-1 px-3 rounded-sm uppercase text-sm bg-blue-500 border border-blue-500 hover:text-blue-500 hover:bg-transparent transition-0.3 modal-open" data-target="#addPostModal">
                         Add Post
                     </a>
                 </div>
 
                 <!-- big post -->
-                <div class="rounded-sm overflow-hidden bg-white shadow-sm">
-                    <a href="view.html" class="block rounded-md overflow-hidden">
+                <div class="rounded-lg mt-4 overflow-hidden bg-white shadow-sm">
+                    <a href="view.html" class="block rounded overflow-hidden">
                         <img src="assets/images/img-12.jpg"
                             class="w-full h-96 object-cover transform hover:scale-110 transition duration-500">
                     </a>
@@ -251,7 +229,7 @@
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem distinctio doloremque
                             placeat ipsa! Sequi, recusandae. In numquam similique molestiae error, magni velit suscipit
                             repudiandae itaqu.... 
-                            <span class='bg-blue-500 hover:bg-blue-600 text-gray-100 text-sm rounded float-right mt-1 cursor-pointer' style="padding:0.14rem 0.5rem;">read more</span>
+                            <button class='bg-blue-500 hover:bg-blue-600 text-gray-100 text-sm rounded float-right mt-1 cursor-pointer modal-open' data-target="#ViewPostModal" style="padding:0.14rem 0.5rem;">read more</button>
                             <div class="clear-both"></div>
                         </p>
                         <div class="flex items-center justify-between mt-2">
@@ -269,13 +247,29 @@
                                 June 11, 2021
                             </div>
                         </div>
-                        <hr class="mt-2">
-                        <div class="react flex justify-between my-2">
-                                    <span class="likes">100 likes</span>
-                                    <span class="comments">12Comments</span>
+                        <hr class="mt-3">
+                        <div class="react flex justify-between my-2 px-1">
+                                <button class="hover:text-blue-600 likes">
+                                      <i class="fa fa-thumbs-up like-icon"></i>
+                                        &nbsp;100 Likes
+                                </button> 
+                                <button class="comments hover:text-blue-600">
+                                        12 Comments&nbsp;
+                                     <i class="fa fa-comments"></i>
+                                </button>
                         </div>
-                        <hr class="mb-2">
-                        <div class="mt-3 flex justify-between space-x-4">
+                        <hr class="mb-3">
+                        <div class="post-comment mb-2">
+                            <div class="form-group relative rounded-3xl border border-gray-300 flex w-full">
+                                <input class='py-2 px-3 pl-6 w-11/12 outline-none rounded-3xl ' type="text" name="comment" id="" placeholder="Write a comment">
+                                <button class="post-comment-btn transition-0.3 text-blue-600 absolute rounded-circle w-10 h-full right-0 top-0 bg-gray-100 hover:bg-gray-200  rounded-full">
+                                    <i class="fa fa-paper-plane"></i>
+                                </button>
+                            </div>
+                            
+                        </div>
+                       
+                        <!-- <div class="mt-3 flex justify-between space-x-4">
                            
                             <div class="flex text-gray-400 text-sm justify-center">
                                 <button class="py-1 px-2 bg-gray-500 dark:bg-gray-700 text-sm text-gray-100 hover:bg-gray-700 rounded mr-1 mb-1">Business</button>
@@ -283,9 +277,11 @@
                                 <button class="py-1 px-2 bg-gray-500 dark:bg-gray-700 text-sm text-gray-100 hover:bg-gray-700 rounded mr-1 mb-1">Sports</button>
                                 <button class="py-1 px-2 bg-gray-500 dark:bg-gray-700 text-sm text-gray-100 hover:bg-gray-700 rounded mr-1 mb-1">Nature</button>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
+                     <!-- big post -->
+        
                 
                 <!-- comment -->
                 <div class="p-4 bg-white rounded-sm shadow-sm mt-8">
@@ -381,127 +377,10 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- regular post -->
-                <!-- <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                    <div class="rounded-sm bg-white p-4 pb-5 shadow-sm">
-                        <a href="#" class="block rounded-md overflow-hidden">
-                            <img src="assets/images/img-7.jpg"
-                                class="w-full h-60 object-cover transform hover:scale-110 transition duration-500">
-                        </a>
-                        <div class="mt-3">
-                            <a href="#">
-                                <h2
-                                    class="block text-xl font-semibold text-gray-700 hover:text-blue-500 transition font-roboto">
-                                    Lorem, ipsum dolor sit amet consec tetur adipisicing elit.
-                                </h2>
-                            </a>
-                            <div class="mt-2 flex space-x-3">
-                                <div class="flex text-gray-400 text-sm items-center">
-                                    <span class="mr-2 text-xs">
-                                        <i class="far fa-user"></i>
-                                    </span>
-                                    Blogging Tips
-                                </div>
-                                <div class="flex text-gray-400 text-sm items-center">
-                                    <span class="mr-2 text-xs">
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    June 11, 2021
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="rounded-sm bg-white p-4 pb-5 shadow-sm">
-                        <a href="#" class="block rounded-md overflow-hidden">
-                            <img src="assets/images/img-6.jpg"
-                                class="w-full h-60 object-cover transform hover:scale-110 transition duration-500">
-                        </a>
-                        <div class="mt-3">
-                            <a href="#">
-                                <h2
-                                    class="block text-xl font-semibold text-gray-700 hover:text-blue-500 transition font-roboto">
-                                    Lorem, ipsum dolor sit amet consec tetur adipisicing elit.
-                                </h2>
-                            </a>
-                            <div class="mt-2 flex space-x-3">
-                                <div class="flex text-gray-400 text-sm items-center">
-                                    <span class="mr-2 text-xs">
-                                        <i class="far fa-user"></i>
-                                    </span>
-                                    Blogging Tips
-                                </div>
-                                <div class="flex text-gray-400 text-sm items-center">
-                                    <span class="mr-2 text-xs">
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    June 11, 2021
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="rounded-sm bg-white p-4 pb-5 shadow-sm">
-                        <a href="#" class="block rounded-md overflow-hidden">
-                            <img src="assets/images/img-5.jpg"
-                                class="w-full h-60 object-cover transform hover:scale-110 transition duration-500">
-                        </a>
-                        <div class="mt-3">
-                            <a href="#">
-                                <h2
-                                    class="block text-xl font-semibold text-gray-700 hover:text-blue-500 transition font-roboto">
-                                    Lorem, ipsum dolor sit amet consec tetur adipisicing elit.
-                                </h2>
-                            </a>
-                            <div class="mt-2 flex space-x-3">
-                                <div class="flex text-gray-400 text-sm items-center">
-                                    <span class="mr-2 text-xs">
-                                        <i class="far fa-user"></i>
-                                    </span>
-                                    Blogging Tips
-                                </div>
-                                <div class="flex text-gray-400 text-sm items-center">
-                                    <span class="mr-2 text-xs">
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    June 11, 2021
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="rounded-sm bg-white p-4 pb-5 shadow-sm">
-                        <a href="#" class="block rounded-md overflow-hidden">
-                            <img src="assets/images/img-11.jpg"
-                                class="w-full h-60 object-cover transform hover:scale-110 transition duration-500">
-                        </a>
-                        <div class="mt-3">
-                            <a href="#">
-                                <h2
-                                    class="block text-xl font-semibold text-gray-700 hover:text-blue-500 transition font-roboto">
-                                    Lorem, ipsum dolor sit amet consec tetur adipisicing elit.
-                                </h2>
-                            </a>
-                            <div class="mt-2 flex space-x-3">
-                                <div class="flex text-gray-400 text-sm items-center">
-                                    <span class="mr-2 text-xs">
-                                        <i class="far fa-user"></i>
-                                    </span>
-                                    Blogging Tips
-                                </div>
-                                <div class="flex text-gray-400 text-sm items-center">
-                                    <span class="mr-2 text-xs">
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    June 11, 2021
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-
             </div>
 
             <!-- right sidebar -->
-            <div class="lg:w-3/12 w-full mt-8 lg:mt-0">
+            <div class="xl:w-3/12 lg:w-4/12 md:w-5/12 w-full pt-8 lg:pt-0 lg:pl-0 md:pl-3 right-sidebar">
               
                 <!-- Popular posts -->
                 <div class="w-full bg-white shadow-sm rounded-sm p-4 ">
@@ -610,11 +489,12 @@
             </div>
 
         </div>
+        </section>
     </main>
 
     <!-- mobile menu -->
-    <div class="fixed w-full h-full bg-black bg-opacity-25 left-0 top-0 z-10 opacity-0 invisible transition-all duration-500 xl:hidden" id="sidebar_wrapper">
-        <div class="fixed top-0 w-72 h-full bg-white shadow-md z-10 flex flex-col transition-all duration-500 -left-80" id="sidebar">
+    <div class="fixed  w-full h-full bg-black bg-opacity-25 left-0 top-0 z-10 opacity-0 invisible transition-all duration-500 xl:hidden" id="sidebar_wrapper">
+        <div class="fixed pt-18 top-0 w-72 h-full bg-white shadow-md z-10 flex flex-col transition-all duration-500 -left-80" id="sidebar">
 
             <!-- search and menu -->
             <div class="lg:hidden">
@@ -746,32 +626,197 @@
     </div>
 
     <!-- footer -->
-    <footer class="border-t py-4">
+    <!-- <footer class="border-t py-4">
         <p class=" text-sm text-center">Copyright © 2021 <span class="font-semibold">Programming Kit</span>
             All Rights Reserved</p>
-    </footer>
+    </footer> -->
     
-    <!-- Search Form Modal -->
-    <div class="search-modal">
-
+<!-- Add Post Modal -->
+<div class="modal" id="addPostModal"  area-hidden="true">
+  <div class="modal-dialog">
+ 
+    <div class="modal-content">
+       <button type="button" class="modal-close default-modal-close" data-dismiss="modal">X</button>
+      <div class="modal-header bg-blue-600 text-gray-50">
+          <h2>Add A Post</h2>
+      </div>
+      <div class="modal-body">
+          
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-sm bg-blue-600 text-gray-50 modal-close ml-auto" data-dismiss="modal">Close</button>
+      </div>
     </div>
-    <script src="assets/js/jquery.min.js"></script>
-    <script>
-        document.querySelector('#open_sidebar').addEventListener('click', function(){
-            document.querySelector('#sidebar').classList.remove('-left-80')
-            document.querySelector('#sidebar').classList.add('left-0')
-            document.querySelector('#sidebar_wrapper').classList.remove('opacity-0')
-            document.querySelector('#sidebar_wrapper').classList.remove('invisible')
-        })
+  </div>
+</div>
+<!-- modal close -->
 
-        document.body.addEventListener('click', function(e){
-            if(e.target.id==='sidebar_wrapper'){
-                document.querySelector('#sidebar').classList.add('-left-80')
-                document.querySelector('#sidebar').classList.remove('left-0')
-                document.querySelector('#sidebar_wrapper').classList.add('opacity-0')
-                document.querySelector('#sidebar_wrapper').classList.add('invisible')
-            }
-        })
-    </script>
+<!-- View Post Modal -->
+<div class="modal" id="ViewPostModal"  area-hidden="true">
+  <div class="modal-dialog">
+ 
+    <div class="modal-content" style="max-width: 750px;">
+       <button type="button" class="modal-close corner-close-btn" data-dismiss="modal">X</button>
+      <div class="modal-header" style="padding:0;">
+           <img src="assets/images/img-12.jpg"
+            class="w-full">
+      </div>
+      <div class="modal-body">
+          <h2 class="block text-2xl font-semibold text-gray-700 hover:text-blue-500 transition font-roboto">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iddo loremque, totam
+                 architecto odit pariatur Lorem ips dolor.
+          </h2>
+
+          <p class="text-gray-500 text-sm mt-2">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem distinctio doloremque
+              placeat ipsa! Sequi, recusandae. In numquam similique molestiae error, magni velit suscipit repudiandae itaqu.... 
+    
+            </p>
+                <div class="flex items-center justify-between mt-2">
+                    <div class='profile flex items-center'>
+                        <img src="assets/images/avatar-2.png" alt="" class="w-9 h-9 rounded-full">
+                            <div class="pl-3">
+                                <h6 class="text-xs text-pri font-bold">John Doe</h6>
+                                 <p class="text-xs text-gen">Brand Specialist</p>
+                            </div>
+                    </div> 
+                     <div class="flex  py-0 px-2 mb-1 text-sm rounded text-gray-400 items-center">
+                                <span class="mr-2">
+                                    <i class="far fa-clock"></i>
+                                </span>
+                                June 11, 2021
+                     </div>
+                </div>
+
+                <div class="mt-3 space-x-4">
+                            <div class="flex text-gray-400 text-sm justify-center">
+                                <button class="btn btn-sm btn-outline text-sm text-gray-600 hover:text-gray-50 hover:bg-gray-600 rounded mr-1 mb-1">Business</button>
+                                <button class="btn btn-sm btn-outline text-sm text-gray-600 hover:text-gray-50 hover:bg-gray-600 rounded mr-1 mb-1">Business</button>
+                                <button class="btn btn-sm btn-outline text-sm text-gray-600 hover:text-gray-50 hover:bg-gray-600 rounded mr-1 mb-1">Business</button>
+                                <button class="btn btn-sm btn-outline text-sm text-gray-600 hover:text-gray-50 hover:bg-gray-600 rounded mr-1 mb-1">Business</button>
+                            </div>
+                  </div> 
+                        <hr class="mt-3">
+                        <div class="react flex justify-between my-2 px-1">
+                                <button class="hover:text-blue-600 likes">
+                                      <i class="fa fa-thumbs-up like-icon"></i>
+                                        &nbsp;100 Likes
+                                </button> 
+                                <button class="comments hover:text-blue-600">
+                                        12 Comments&nbsp;
+                                     <i class="fa fa-comments"></i>
+                                </button>
+                        </div>
+                        <hr class="mb-3">    
+                    
+          
+          </div>
+
+            <div class="p-4 bg-white rounded-sm shadow-sm mt-8">
+                    <h4 class="text-base uppercase  font-semibold mb-2 font-roboto">Post a comment</h4>
+                          <form action="#" class="mt-2">
+                        <textarea type="text"
+                            class="w-full border border-gray-200 py-3 px-5 text-sm  rounded-sm h-20 focus:outline-none focus:border-gray-400"
+                            placeholder="type your comment"></textarea>
+                        <div class="mt-2">
+                            <button type="submit"
+                            class="text-white py-1 px-3 rounded-sm uppercase text-sm bg-blue-500 border border-blue-500 hover:text-blue-500 hover:bg-transparent transition">
+                            Post
+                        </button>
+                        </div>
+                    </form>
+
+                    <div class="space-y-5 mt-4">
+                        <div class="flex items-start border-b  pb-5 border-gray-200">
+                            <div class="w-12 h-12 flex-shrink-0">
+                                <img src="assets/images/avatar.png" class="w-full">
+                            </div>
+                            <div class="flex-grow pl-4">
+                                <div class="commenter">
+                                    <h4 class="text-base  font-roboto">Rasel Ahmed</h4>
+                                    <p class="text-xs text-gray-400">9 Aprile 2021 at 12:34 AM</p>
+                                </div>
+                                
+                                <p class="text-sm font-600 mt-2">Great article. Thanks</p>
+                                <div class="reply">
+                                    <div class="flex gap-2 mt-2">
+                                        <button
+                                            class="text-gray-500 px-1 text-xs border border-gray-200 rounded-sm shadow-sm hover:bg-blue-500 hover:text-white transition">Reply<button>
+                                        <button
+                                            class="text-gray-500 px-1 text-xs border border-gray-200 rounded-sm shadow-sm hover:bg-blue-500 hover:text-white transition">Delete</button>
+                                    </div>
+                                </div> 
+                                <div class="reply-form">
+                        <form action="#" class="mt-2">
+                         <div class="form-group">
+                             <div class="input-message">
+                                <textarea type="text"
+                            class="w-full border border-gray-200 py-1 px-2 text-sm  rounded-sm h-20 focus:outline-none focus:border-gray-400"
+                            placeholder="type your message"></textarea>
+                             </div>
+                            <div class="">
+                                <button type="submit"
+                                class="text-white py-1 px-3 rounded-sm uppercase text-sm bg-blue-500 border border-blue-500 hover:text-blue-500 hover:bg-transparent transition">
+                                Post
+                                </button>
+                            </div>
+               
+        
+                        </div>
+                    </form> 
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-start border-b  pb-5 border-gray-200">
+                            <div class="w-12 h-12 flex-shrink-0">
+                                <img src="assets/images/avatar-2.png" class="w-full">
+                            </div>
+                            <div class="flex-grow pl-4">
+                                <h4 class="text-base  font-roboto">John Doe</h4>
+                                <p class="text-xs text-gray-400">9 Aprile 2021 at 12:34 AM</p>
+                                <p class="text-sm font-600 mt-2">Great article. Thanks</p>
+                                <div class="flex gap-2 mt-2">
+                                    <button
+                                        class="text-gray-500 px-1 text-xs border border-gray-200 rounded-sm shadow-sm hover:bg-blue-500 hover:text-white transition">Reply</button>
+                                    <button
+                                        class="text-gray-500 dark:text-gray-100 px-1 text-xs border border-gray-200 dark:border-gray-600 rounded-sm shadow-sm hover:bg-blue-500 hover:text-white transition">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 flex-shrink-0">
+                                <img src="assets/images/avatar.png" class="w-full">
+                            </div>
+                            <div class="flex-grow pl-4">
+                                <h4 class="text-base  font-roboto">Rasel Ahmed</h4>
+                                <p class="text-xs text-gray-400">9 Aprile 2021 at 12:34 AM</p>
+                                <p class="text-sm font-600 mt-2">Great article. Thanks</p>
+                                <div class="flex gap-2 mt-2">
+                                    <button
+                                        class="text-gray-500 dark:text-gray-100 px-1 text-xs border border-gray-200 dark:text-gray-500 rounded-sm shadow-sm hover:bg-blue-500 hover:text-white transition">Reply</button>
+                                    <button
+                                        class="text-gray-500 px-1 text-xs border border-gray-200 rounded-sm shadow-sm hover:bg-blue-500 hover:text-white transition">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <button class="bg-gray-600 text-gray-100 rounded py-1 w-full text-center">View Previous Comments</button>
+                        </div>
+                    </div>
+                </div>
+
+
+   
+        <button type="button" class="block mr-3 mb-2 btn btn-sm bg-blue-600 text-gray-50 modal-close ml-auto" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>
+<!-- modal close -->
+
+</div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/vanilla.js"></script>
+    <script src="assets/js/frontend/style.js"></script>
 </body>
 </html>

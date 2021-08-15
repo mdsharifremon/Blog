@@ -1,5 +1,13 @@
+*, ::after, :before{
+	padding: 0;
+	margin:0;
+	box-sizing: border-box;
+}
+
+
 /* Deafult Margin & Padding */
 /*-- Margin Top --*/
+
 .mt-5 {
 	margin-top: 5px;
 }
@@ -637,36 +645,15 @@
 .pr-100 {
 	padding-right: 100px;
 }
-
-
-
-
-
-
 .pr-75 {
 	padding-right: 75px;
 }
 
 
-/* Background Color */
 
-.gray-bg {
-	background: #f7f7fd;
-}
-.white-bg {
-	background: #fff;
-}
-.black-bg {
-	background: #222;
-}
-/* Color */
 
-.white {
-	color: #fff;
-}
-.black {
-	color: #222;
-}
+
+
 /* black overlay */
 
 [data-overlay] {
@@ -703,3 +690,80 @@
 [data-overlay="9"]::before {
 	opacity: 0.9;
 }
+
+.flex-center{
+	display:flex;
+	justify-content: center;
+	align-items: center;
+}
+.m-auto{
+	margin-left:auto;
+	margin-right: auto;
+}
+
+.transition-0\.2{
+    transition:all 0.2s ease-in-out;
+    -webkit-transition:all 0.2s ease-in-out;
+    -moz-transition:all 0.2s ease-in-out;
+}
+.transition-0\.3{
+    transition:all 0.3s ease-in-out;
+    -webkit-transition:all 0.3s ease-in-out;
+    -moz-transition:all 0.3s ease-in-out;
+}
+
+.transition-0\.4{
+    transition:all 0.4s ease-in-out;
+    -webkit-transition:all 0.4s ease-in-out;
+    -moz-transition:all 0.4s ease-in-out;
+}
+
+.transition-0\.5{
+    transition:all 0.5s ease-in-out;
+    -webkit-transition:all 0.5s ;
+    -moz-transition:all 0.5s ;
+}
+
+.transition-0\.6{
+    transition:all 0.6s ease-in-out;
+    -webkit-transition:all 0.6s ease-in-out;
+    -moz-transition:all 0.6s ease-in-out;
+}
+.transition-0\.7{
+    transition:all 0.7s ease-in-out;
+    -webkit-transition:all 0.7s ease-in-out;
+    -moz-transition:all 0.7s ease-in-out;
+}
+
+
+.btn{
+	cursor:pointer;
+	outline:none;
+	border:1px solid;
+	border:none;
+	border-radius:3px;
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
+	-ms-border-radius:3px;
+	-o-border-radius:3px;
+	transition:all 0.3s ease-in-out;
+	-webkit-transition:all 0.3s ease-in-out;
+	-moz-transition:all 0.3s ease-in-out;
+}
+.btn-outline{
+	background:transparent;
+	border:1px solid #d8d5d5;
+}
+.btn{
+	padding:10px 25px;
+}
+.btn-lg{
+	padding:15px 35px;
+}
+.btn-sm{
+	padding:6px 12px;
+}
+.btn-xs{
+	padding:4px 8px;
+}
+
