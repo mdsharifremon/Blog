@@ -4,8 +4,6 @@ const ThemeExtend =
   fontFamily: {
     poppins: ["Poppins", "sans-serif"],
     roboto: ["Roboto", "sans-serif"],
-    title: ["Sansita", "sans-serif"],
-    body: ["Lato", "sans-serif"],
   },
   
   colors: {

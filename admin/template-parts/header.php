@@ -22,12 +22,13 @@ if ('index' === $page_name) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="<?php echo CSS_ROOT; ?>google-fonts.css">
     <link rel="stylesheet" href="<?php echo CSS_ROOT; ?>fontawesome-all.min.css">
     <link rel="stylesheet" href="<?php echo CSS_ROOT; ?>style.css">
     <link rel="stylesheet" href="<?php echo CSS_ROOT; ?>dashboard.css">
     <title><?php echo $page_title; ?> </title>
 </head>
-<body>
+<body class="font-poppins">
     <header id="header">
         <div class="top fixed top-0 left-0 right-0 bg-gray-800">
             <div class="h-14 px-5 flex justify-between items-center shadow-md">

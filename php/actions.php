@@ -16,13 +16,6 @@ $db = new Database();
 */
 
 /***************************
- * Category Fetch 
+ *  
  * 
  * *************************/
-if (isset($_POST['action']) && $_POST['action'] === 'fetchCategories') {
-
-  $row = $db->fetch_by_sql("SELECT * FROM taxonomy WHERE tax_type = 'category'");
-  print_r($row);
-  echo $row;
-      
-}

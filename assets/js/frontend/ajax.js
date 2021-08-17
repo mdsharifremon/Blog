@@ -1,9 +1,9 @@
 jQuery(document).ready(function ($) {
 	/**
-	 * @Fetch Categories
+	 * @Fetch Post
 	 */
 
-	function fetchCategories() {
+	function fetchPosts() {
 		$.ajax({
 			url: "php/actions.php",
 			method: "POST",
@@ -13,21 +13,11 @@ jQuery(document).ready(function ($) {
             },
 		});
 	}
-	fetchCategories();
+	fetchPosts();
 
 	/**
-	 * @Fetch Tags
+	 * @Insert Posts
 	 */
 
-	function fetchTags() {
-		$.ajax({
-			url: "php/actions.php",
-			method: "POST",
-			data: { action: "fetchTags" },
-            success: function () {
-                
-            },
-		});
-	}
-	fetchTags();
+
 })

@@ -35,7 +35,7 @@ class Database{
             $sql = "SELECT * FROM {$table} ";
 
             if ($condition != null) {
-                $sql = "WHERE {$condition} ";
+                $sql .= "WHERE {$condition} ";
             }
             if (null !== $order && null !== $sort) {
                 $sql .= "ORDER BY {$order} {$sort} ";
@@ -53,15 +53,18 @@ class Database{
     /** Fetch By Sql */
 
     public function fetch_by_sql($sql = null){
-            if($sql == null){
+            if(null != $sql){
                 $result = $this->conn->query($sql);
                 if ($result->num_rows > 0) {
                     $row = $result->fetch_all(MYSQLI_ASSOC);
+                    return $row;
                 } else {
                     return false;
                 }
-                return $row;
             }
+        
+       
+            
     }
 
 

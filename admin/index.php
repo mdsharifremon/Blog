@@ -1,10 +1,13 @@
+<?php
+require_once "php/functions.php";
+?>
+
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
   <head>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="<?php echo CSS_ROOT;?>google-fonts.css">
   <style>
         *, *::after, *::before {
           margin: 0;

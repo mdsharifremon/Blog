@@ -4,9 +4,6 @@
  * 
  */
 ?>   
-   
-   
-   
    <div class="w-3/12 xl:block hidden left-sidebar">
        <!-- Social plugin -->
        <div class="w-full bg-white shadow-sm rounded-sm p-4">
