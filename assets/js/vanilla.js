@@ -15,6 +15,8 @@
 		}
  });
 
+
+ /** Modal  */
     const modalOpenBtn = document.getElementsByClassName("modal-open");
 	const modalCloseBtn = document.getElementsByClassName("modal-close");
 		/** Modal Open Button */
@@ -33,4 +35,25 @@
 				targetModal.setAttribute("area-hidden", true);
 			});
 		});
+
+function modal_hide(modal) {
+	const Modal = document.getElementById(modal);
+	if (Modal.classList.contains('show')) {
+		Modal.classList.remove("show");
+	}
+}
+
+
+/** Alert  */
+const AlertClose = document.getElementsByClassName("alert-close");
+[...AlertClose].forEach(closeBtn => {
+	closeBtn.addEventListener('click', function () {
+		let alertBox = closeBtn.closest(".alert-dismissible");
+		alertBox.style.opacity = 0.5;
+		setTimeout(() => {
+			alertBox.remove();
+		}, 300);	
+	})
+})
+
 	

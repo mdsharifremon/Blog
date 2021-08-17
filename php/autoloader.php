@@ -3,6 +3,8 @@
 /**
  * Autoloader
  * 
+ * FILE INCLUDES
+ * ## config.php
  */
 require_once "config.php";
 spl_autoload_register(function($className) {

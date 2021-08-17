@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* Image Designing Propoerties */
+    .thumb {
+        height: 75px;
+        border: 1px solid #000;
+        margin: 10px 5px 0 0;
+    }
+</style>
+</head>
+<body>
+
+
+<div id="uploader">
+
+</div>
+<input type='file' />
+</br>
+
+<script src="assets/js/jquery.min.js"></script>
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+
+    /* The uploader form */
+    $(function () {
+        $(":file").change(function () {
+            if (this.files && this.files[0]) {
+                var reader = new FileReader();
+                reader.onload = (e) => {
+                    let img = `<img src="${e.target.result}" alt="post-image" class="uploaded-img" />`;
+                    $('#uploader').html(img);
+                }
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+    });
+
+})
+
+</script>
+
+
+
+    
+</body>
+</html>

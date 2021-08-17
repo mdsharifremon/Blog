@@ -1,0 +1,1 @@
+<script src="<?php echo JS_ROOT; ?>sweetalert2.all.min.js"></script>

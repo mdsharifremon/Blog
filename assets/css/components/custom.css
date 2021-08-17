@@ -89,6 +89,16 @@ button.likes:hover > .like-icon{
     -moz-transform:scale(1.5);
 }
 
+.dark-mode-btn.active{
+    background:#151518 !important;
+    color:#e5e9f1 !important;
+    border-color:#151518 !important;
+}
+::placeholder{
+  color:#323335;
+  font-size:14px;
+}
+
 
 
 

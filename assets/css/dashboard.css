@@ -1,5 +1,7 @@
 /* Import Default Class */
 @import url('./components/default.css');
+@import url('./components/modal.css');
+@import url('./components/alert.css');
 
 *{
   margin: 0;
@@ -155,10 +157,19 @@ header#header .top{
   padding:8px;
   text-align:center;
 }
+.table-content td{
+  font-size:14px;
+}
 
 .table-content tbody tr:nth-child(even){
   background:#e6e6e6;
 }
+/* textarea::placeholder,
+::placeholder{
+  color:#49494b;
+  font-size:14px;
+} */
+
 
 
 

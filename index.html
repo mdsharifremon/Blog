@@ -46,6 +46,35 @@
                         <i class="far fa-user"></i>
                     </span>
                     Login/Register</a>
+                <div class="relative">
+                    <span class="login-handle">&nbsp;&nbsp;<i class="fa fa-caret-down"></i></span>
+                    <!--Login Side Options -->
+                    <div class="login-option text-sm absolute top-10 -right-2 rounded shadow-lg p-4 w-80 bg-white hidden">
+                        <div class="mt-2 mb-4 flex justify-between">
+                           <span class="text-base">Dark Mode</span> 
+                           <button class="dark-mode-btn border border-gray-600 bg-white text-gray-600 w-12 h-6 rounded-3xl">
+                                <i class="fa fa-sun text-xs"></i>
+                           </button>
+                        </div>
+                        <hr class="border border-b-0 border-gray-200">
+                        <p class="text-lg text-bold text-gray-600 mt-4 mb-2">Login to website</p>
+                        <form class="form">
+                            <input type="email" class="form-control outline-none px-2 py-2 w-full border rounded border-gray-100 focus:border-gray-300 mb-4" placeholder="Email">
+                            <input type="password" class="form-control outline-none px-2 py-2 w-full border rounded border-gray-100 focus:border-gray-300 mb-4" placeholder="Password">
+                            <div id="side-login-error"></div>
+                            <input type="submit" class="btn font-bold w-full bg-blue-500 hover:bg-blue-600 transiton-0.4 text-white" value="Login">
+
+                        </form>
+                        <p class="mt-3  text-center">
+                            <span>Do not have account?</span>&nbsp;
+                           <button class="underline text-blue-400">SignUp</button>
+                           <button class="mt-1 mb-2  underline text-blue-400 text-center">Forgot Password</button>
+                        </p>
+                        
+                    </div>
+                     <!--Login Side Options -->
+                </div>
+
             </div>
             <div class="text-xl text-gray-700 cursor-pointer ml-4 xl:hidden block hover:text-blue-500 transition" id="open_sidebar">
                 <i class="fas fa-bars"></i>
@@ -377,6 +406,11 @@
                         </div>
                     </div>
                 </div>
+                <!-- footer -->
+                <footer class="bg-white rounded shadow mt-3 py-3">
+                    <p class=" text-sm text-center ">Copyright © 2021 <a href="https://sharifwds.me" target="_blank" class="font-semibold">Sharif Uddin</a>
+                        All Rights Reserved</p>
+                </footer>
             </div>
 
             <!-- right sidebar -->
@@ -625,11 +659,7 @@
         </div>
     </div>
 
-    <!-- footer -->
-    <!-- <footer class="border-t py-4">
-        <p class=" text-sm text-center">Copyright © 2021 <span class="font-semibold">Programming Kit</span>
-            All Rights Reserved</p>
-    </footer> -->
+    
     
 <!-- Add Post Modal -->
 <div class="modal" id="addPostModal"  area-hidden="true">
