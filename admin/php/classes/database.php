@@ -52,6 +52,8 @@ class Database{
 
 
 
+
+
     /** Delete Data By Id */ 
     public function delete($table = null, $condition = null)
     {

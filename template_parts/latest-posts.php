@@ -1,14 +1,15 @@
 <?php
-
 /**
- * Popular Posts
+ * 
+ * Lattest Posts
  */
 ?>
+
 
 <div class="space-y-4">
     <a href="#" class="flex group">
         <div class="flex-shrink-0">
-            <img src="assets/images/img-5.jpg" class="h-14 w-20 lg:w-14 xl:w-20 rounded object-cover">
+            <img src="assets/images/img-1.jpg" class="h-14 w-20 rounded object-cover">
         </div>
         <div class="flex-grow pl-3">
             <h5 class="text-md leading-5 block font-roboto font-semibold  transition group-hover:text-blue-500">
@@ -22,7 +23,7 @@
     </a>
     <a href="#" class="flex group">
         <div class="flex-shrink-0">
-            <img src="assets/images/img-9.jpg" class="h-14 w-20 lg:w-14 xl:w-20 rounded object-cover">
+            <img src="assets/images/img-2.jpg" class="h-14 w-20 rounded object-cover">
         </div>
         <div class="flex-grow pl-3">
             <h5 class="text-md leading-5 block font-roboto font-semibold  transition group-hover:text-blue-500">
@@ -36,7 +37,7 @@
     </a>
     <a href="#" class="flex group">
         <div class="flex-shrink-0">
-            <img src="assets/images/img-8.jpg" class="h-14 w-20 lg:w-14 xl:w-20 rounded object-cover">
+            <img src="assets/images/img-3.jpg" class="h-14 w-20 rounded object-cover">
         </div>
         <div class="flex-grow pl-3">
             <h5 class="text-md leading-5 block font-roboto font-semibold  transition group-hover:text-blue-500">

@@ -4,7 +4,6 @@
 * Database Class
 * 
 */
-
 class Database{
     private $DB_HOST = 'localhost';
     private $DB_USER = 'root';
@@ -21,7 +20,7 @@ class Database{
     public function __construct()
     {
         if ($this->conn == null) {
-            $this->conn = mysqli_connect($this->hostname, $this->user, $this->password, $this->dbname);
+            $this->conn = mysqli_connect($this->DB_HOST, $this->DB_USER, $this->DB_PASS, $this->DB_NAME);
         }
         if ($this->conn->connect_error) {
             echo "Error : " . $this->conn->connect_error;
@@ -32,11 +31,15 @@ class Database{
     /**  Fetch All Data Based On Condition */
     public function fetch_All($table = null, $order = null, $sort = null, $condition = null)
     {
-        if ($table != null && $order != null) {
+        if ($table != null) {
+            $sql = "SELECT * FROM {$table} ";
+
             if ($condition != null) {
-                $sql = "SELECT * FROM {$table} WHERE {$condition} ORDER BY {$order} {$sort}";
+                $sql = "WHERE {$condition} ";
             }
-            $sql = "SELECT * FROM {$table} ORDER BY {$order} DESC";
+            if (null !== $order && null !== $sort) {
+                $sql .= "ORDER BY {$order} {$sort} ";
+            }
             $result = $this->conn->query($sql);
             if ($result->num_rows > 0) {
                 $row = $result->fetch_all(MYSQLI_ASSOC);
@@ -45,6 +48,20 @@ class Database{
             }
             return $row;
         }
+    }
+
+    /** Fetch By Sql */
+
+    public function fetch_by_sql($sql = null){
+            if($sql == null){
+                $result = $this->conn->query($sql);
+                if ($result->num_rows > 0) {
+                    $row = $result->fetch_all(MYSQLI_ASSOC);
+                } else {
+                    return false;
+                }
+                return $row;
+            }
     }
 
 
@@ -63,7 +80,7 @@ class Database{
 
 
     /**  Insert Data Into Database  */
-    public function insert($table, $param = array())
+    public function insert($table, $param = [])
     {
         if ($this->table_exist($table)) {
             $table_keys = implode(", ", array_keys($param));
@@ -76,7 +93,6 @@ class Database{
             }
         }
     }
-
 
 
     /** Update Data From Database  */
@@ -109,7 +125,7 @@ class Database{
     /**  Check Table Exist In Database Or Not. */
     private function table_exist($table)
     {
-        $sql = "SHOW TABLES FROM {$this->dbname} LIKE '{$table}'";
+        $sql = "SHOW TABLES FROM {$this->DB_NAME} LIKE '{$table}'";
         $db_table_name =  $this->conn->query($sql);
         if ($db_table_name) {
             if ($db_table_name->num_rows == 1) {

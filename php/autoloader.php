@@ -9,7 +9,7 @@
 require_once "config.php";
 spl_autoload_register(function($className) {
 
-	$file = CLASS_ROOT . 'class-' . strtolower($className) . '.php';
+	$file = CLASS_ROOT . strtolower($className) . '.php';
 
 	if (file_exists($file)) {
             require_once $file;
@@ -19,7 +19,3 @@ spl_autoload_register(function($className) {
         echo "class does not exist";
     }
 });
-
-
-
-?>
