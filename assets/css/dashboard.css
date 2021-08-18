@@ -10,6 +10,7 @@
   font-family: "Poppins" , sans-serif;
 }
 .sidebar{
+  background:#1F2937;
   width:80px;
   padding:80px 0 20px 0;
   position: fixed;
@@ -20,6 +21,7 @@
   transition: all 0.5s ease;
 }
 .sidebar i{
+
   color: #ffffff;
   height: 40px;
   min-width: 40px;
@@ -114,6 +116,7 @@
 }
 
 header#header .top{
+  background:#1F2937;
   z-index:15;
 }
 

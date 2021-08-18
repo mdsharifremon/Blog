@@ -26,3 +26,4 @@
 
  /** Footer */
  require_once "template_parts/footer.php";
+

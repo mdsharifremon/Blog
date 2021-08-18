@@ -24,10 +24,22 @@ function menu_active($param)
             <span class="tooltip">Dashboard</span>
         </li>
         <li>
-            <a href="taxonomy.php" class="<?php menu_active('taxonomy'); ?>">
+            <a href="categories.php" class="<?php menu_active('categories'); ?>">
+                <i class='fa fa-list-alt'></i>
+            </a>
+            <span class="tooltip">Categories</span>
+        </li>
+        <li>
+            <a href="tags.php" class="<?php menu_active('tags'); ?>">
                 <i class='fa fa-tags'></i>
             </a>
-            <span class="tooltip">Taxonomy</span>
+            <span class="tooltip">Tags</span>
+        </li>
+        <li>
+            <a href="posts.php" class="<?php menu_active('posts'); ?>">
+                <i class='fa fa-users'></i>
+            </a>
+            <span class="tooltip">Posts</span>
         </li>
         <li>
             <a href="users.php" class="<?php menu_active('users'); ?>">
@@ -40,24 +52,6 @@ function menu_active($param)
                 <i class='fa fa-envelope'></i>
             </a>
             <span class="tooltip">Messages</span>
-        </li>
-        <li>
-            <a href="#">
-                <i class='fa fa-file-alt'></i>
-            </a>
-            <span class="tooltip">File Manager</span>
-        </li>
-        <li>
-            <a href="#">
-                <i class='fa fa-list-alt'></i>
-            </a>
-            <span class="tooltip">Order</span>
-        </li>
-        <li>
-            <a href="#">
-                <i class='fa fa-heart'></i>
-            </a>
-            <span class="tooltip">Saved</span>
         </li>
         <li>
             <a href="settings.php" class="<?php menu_active('settings'); ?>">

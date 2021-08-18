@@ -11,6 +11,7 @@ $db = new Database();
 
 <!DOCTYPE html>
 <html lang="en" class="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -45,12 +46,20 @@ $db = new Database();
                 </button>
             </div>
             <div class="flex">
+                <?php if (isset($user_name)) : ?>
+                    <a  id="logged-button" class=" text-sm  font-semibold hover:text-blue-500 transition flex items-center">
+                        <span class="mr-2">
+                            <i class="far fa-user"></i>
+                        </span>
+                        <?php echo ucfirst($first_name); ?></a>
+                <?php else : ?>
+                    <a href="login.php" id="login-button" class=" text-sm  font-semibold hover:text-blue-500 transition flex items-center">
+                        <span class="mr-2">
+                            <i class="far fa-user"></i>
+                        </span>
+                        Login/Register</a>
+                <?php endif; ?>
 
-                <a href="login.php" id="login-button" class=" text-sm  font-semibold hover:text-blue-500 transition flex items-center">
-                    <span class="mr-2">
-                        <i class="far fa-user"></i>
-                    </span>
-                    Login/Register</a>
                 <div class="relative">
                     <span class="login-handle">&nbsp;&nbsp;<i class="fa fa-caret-down"></i></span>
                     <!--Login Side Options -->

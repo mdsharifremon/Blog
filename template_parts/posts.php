@@ -43,7 +43,7 @@
         <hr class="mt-3">
         <div class="react flex justify-between my-2 px-1">
             <button class="hover:text-blue-600 likes">
-                <i class="fa fa-thumbs-up like-icon"></i>
+                <i class="fa fa-heart like-icon"></i>
                 &nbsp;100 Likes
             </button>
             <button class="comments hover:text-blue-600">
@@ -52,14 +52,15 @@
             </button>
         </div>
         <hr class="mb-3">
-        <div class="post-comment mb-2">
-            <div class="form-group relative rounded-3xl border border-gray-300 flex w-full">
-                <input class='py-2 px-3 pl-6 w-11/12 outline-none rounded-3xl ' type="text" name="comment" id="" placeholder="Write a comment">
-                <button class="post-comment-btn transition-0.3 text-blue-600 absolute rounded-circle w-10 h-full right-0 top-0 bg-gray-100 hover:bg-gray-200  rounded-full">
-                    <i class="fa fa-paper-plane"></i>
-                </button>
+        <?php if (isset($user_id)) : ?>
+            <div class="post-comment mb-2">
+                <div class="form-group relative rounded-3xl border border-gray-300 flex w-full">
+                    <input class='py-2 px-3 pl-6 w-11/12 outline-none rounded-3xl ' type="text" name="comment" id="" placeholder="Write Your Thoughts Here">
+                    <button class="post-comment-btn transition-0.3 text-blue-600 absolute rounded-circle w-10 h-full right-0 top-0 bg-gray-100 hover:bg-gray-200  rounded-full">
+                        <i class="fa fa-paper-plane"></i>
+                    </button>
+                </div>
             </div>
-
-        </div>
+        <?php endif; ?>
     </div>
 </div>

@@ -91,6 +91,7 @@ class Database{
 
             $sql = "INSERT INTO {$table}({$table_keys}) 
                     VALUES('{$table_vals}')";
+
             if ($this->conn->query($sql)) {
                 return true;
             }
