@@ -33,10 +33,24 @@ jQuery(document).ready(function ($) {
 			method: "POST",
 			data: { action: "fetchPosts" },
 			success: function (data) {
-				console.log(data);
+				$("#all-posts").html(data);
 			},
 		});
 	}
+	fetchPosts();
+	
+	/** @Fetch_Recent_Posts */
+	function fetchRecentPosts() {
+		$.ajax({
+			url: "php/actions.php",
+			method: "POST",
+			data: { action: "fetchRecentPosts" },
+			success: function (data) {
+				$("#recent-posts").html(data);
+			},
+		});
+	}
+	fetchRecentPosts();
 
 
 	/**
@@ -54,11 +68,22 @@ jQuery(document).ready(function ($) {
 			cache: false,
 			processData: false,
 			success: function (data) {
-				if (data == 'posted') {
+				console.log(data);
+				if(data == 1){
+					$("#add-post-btn").val("Save Post");
+					$("#add-post-form")[0].reset();
+					Swal.fire({
+						title: "Post added successfully",
+						icon : "success",
+					})
+
 					modal_hide("addPostModal");
-				} else {
+					fetchPosts();
+					fetchRecentPosts();
+				} else{	
 					$("#add-post-err").html(data);
-					setTimeout( ()=> $('.alert-dismissible').remove(), 10000);
+					setTimeout(() => $(".alert-dismissible").remove(), 10000);
+					$("#add-post-btn").val("Save Post");
 				}
 			}
 		});

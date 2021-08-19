@@ -106,7 +106,7 @@ if(isset($_SESSION['user']) && $_SESSION['user'] == 'yes'){
   <script>
     jQuery(document).ready(function($) {
 
-      /** Sign Up */
+      /** @SignUp */
       $('#signup-btn').click(function(e) {
         if ($("#signup-form")[0].checkValidity()) {
           e.preventDefault();
@@ -137,7 +137,7 @@ if(isset($_SESSION['user']) && $_SESSION['user'] == 'yes'){
         }
       })
 
-      /** Login */
+      /** @Login */
       $("#login-btn").click(function(e) {
         if ($('#login-form')[0].checkValidity()) {
           e.preventDefault();

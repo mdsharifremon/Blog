@@ -26,7 +26,7 @@ define("PHP_ROOT", ROOT . 'php\\');
 define("CLASS_ROOT", PHP_ROOT . 'classes\\');
 define("ASSETS_ROOT", ROOT . 'assets\\');
 define("ADMIN_ROOT",  ROOT . 'admin\\');
-define("IMG_ROOT_DIR", ROOT . "assets\\images");
+define("IMG_ROOT_DIR", ROOT . "assets\\images\\");
 
 /** ASSETS URL */
 define("ASSETS_ROOT_URL", BASE_URL . 'assets/');

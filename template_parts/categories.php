@@ -15,7 +15,9 @@
                     <i class="far fa-folder-open"></i>
                 </span>
                 <span><?php echo $data['cat_name']; ?></span>
-                <p class="ml-auto font-normal">(12)</p>
+                <p class="ml-auto font-normal">(
+            <?php if($count = $db->row_count('posts', "post_cat = {$data['cat_id']}")){echo $count;} ?>
+                    )</p>
         </a>
     <?php
         endforeach;

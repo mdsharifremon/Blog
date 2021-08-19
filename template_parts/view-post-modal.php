@@ -100,8 +100,6 @@
                                                 Post
                                             </button>
                                         </div>
-
-
                                     </div>
                                 </form>
 

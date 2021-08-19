@@ -1,5 +1,5 @@
-
 <?php
+
 /**
  * 
  * Right Sidebar
@@ -11,9 +11,11 @@
         <h3 class="text-xl font-semibold text-gray-700 mb-3 font-roboto">Popular Posts</h3>
         <?php require_once "template_parts/popular-posts.php"; ?>
     </div>
-    <!-- random posts -->
+    <!-- Recent posts -->
     <div class="w-full mt-8 bg-white shadow-sm rounded-sm p-4 ">
-        <h3 class="text-xl font-semibold text-gray-700 mb-3 font-roboto">Random Posts</h3>
-        <?php require_once "template_parts/latest-posts.php"; ?>
+        <h3 class="text-xl font-semibold text-gray-700 mb-3 font-roboto">Recent Posts</h3>
+        <div class='space-y-4' id='recent-posts'>
+
+        </div>
     </div>
 </div>

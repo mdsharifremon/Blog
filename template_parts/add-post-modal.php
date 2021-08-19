@@ -11,7 +11,7 @@
         <div class="modal-content">
             <button type="button" class="modal-close default-modal-close" data-dismiss="modal">X</button>
             <div class="modal-header bg-blue-600 text-gray-50">
-                <h2>Add A Post</h2>
+                <h2 class="text-2xl font-bold">Add A Post</h2>
             </div>
             <div class="modal-body">
                 <form enctype="multipart/form-data" id="add-post-form">

@@ -10,25 +10,25 @@
 
                    <!-- title -->
                    <div class="flex bg-white px-3 py-2 justify-between items-center rounded-sm">
-                       <h5 class="text-base uppercase font-semibold font-roboto">BUSINESS</h5>
+                       <h5 class="text-base uppercase font-semibold font-roboto" id="posts-under-the-category">BUSINESS</h5>
                        <?php if (isset($user_id)) : ?>
                            <a href="#" class="text-white py-1 px-3 rounded-sm uppercase text-sm bg-blue-500 border border-blue-500 hover:text-blue-500 hover:bg-transparent transition-0.3 modal-open" data-target="#addPostModal">
                                Share Your Thoughts
                            </a>
                        <?php else : ?>
-                           <a href="#" class="text-white py-1 px-3 rounded-sm uppercase text-sm bg-blue-500 border border-blue-500 hover:text-blue-500 hover:bg-transparent transition-0.3 modal-open" data-target="#addPostModal">
+                           <a href="login.php" class="text-white py-1 px-3 rounded-sm uppercase text-sm bg-blue-500 border border-blue-500 hover:text-blue-500 hover:bg-transparent transition-0.3" >
                                Login first to Write post
                            </a>
                        <?php endif; ?>
                    </div>
 
-                   <!-- big post -->
-                   <?php require_once "template_parts/posts.php"; ?>
-                   <!-- big post -->
+                   <!-- All posts -->
+                   <div id="all-posts"></div>
+                   <!-- All posts -->
 
 
                    <!-- comment -->
-                   <?php require_once "template_parts/comments.php"; ?>
+                <?php // require_once "template_parts/comments.php"; ?> 
 
                    <!-- footer -->
                    <footer class="bg-white rounded shadow mt-3 py-3">
