@@ -19,12 +19,12 @@
                     $date = date('M d, Y', strtotime($post['post_created_on']));
                 ?>
                     <article class="rounded">
-                        <?php if($post["post_image"] != ''): ?>
-                        <figure class="post-image">
-                            <img src="<?php echo IMG_ROOT . 'posts/'. $post["post_image"]; ?>" class="w-full rounded">
-                        </figure>
+                        <?php if ($post["post_image"] != '') : ?>
+                            <figure class="post-image">
+                                <img src="<?php echo IMG_ROOT . 'posts/' . $post["post_image"]; ?>" class="w-full rounded">
+                            </figure>
                         <?php endif; ?>
-                        <section class="post-content px-4 py-2">
+                        <section class="post-content px-4 py-2 bg-white rounded">
                             <h2 class="block text-2xl font-semibold text-gray-700 font-roboto mt-1">
                                 <?php echo $post['post_title']; ?>
                             </h2>
@@ -48,69 +48,110 @@
                                     <span class="mr-2">
                                         <i class="far fa-clock"></i>
                                     </span>
-                                    <time datetime="<?php echo $post['post_created_on']; ?>"><?php echo $date ;?></time>
+                                    <time datetime="<?php echo $post['post_created_on']; ?>"><?php echo $date; ?></time>
                                     <span class="screen-reader hidden" area-hidden="true">Updated On<time datetime="<?php echo $post["post_edited_on"]; ?>">
-                                <?php echo date('M d, Y', strtotime($post["post_edited_on"])); ?>
-                                </time></span>
+                                            <?php echo date('M d, Y', strtotime($post["post_edited_on"])); ?>
+                                        </time></span>
                                 </div>
                             </div>
                             <div class="mt-3 space-x-4">
                                 <div class="flex text-gray-400 text-sm justify-center">
                                     <button class="btn btn-sm btn-outline text-sm text-gray-600 hover:text-gray-50 hover:bg-gray-600 rounded mr-1 mb-1">
-                                    <?php echo $post["cat_name"]; ?>
-                                </button>
-                <button class="btn btn-sm btn-outline text-sm text-gray-600 hover:text-gray-50 hover:bg-gray-600 rounded mr-1 mb-1">
-                    <?php echo $post["tag_name"]; ?>
-                </button>
+                                        <?php echo $post["cat_name"]; ?>
+                                    </button>
+                                    <button class="btn btn-sm btn-outline text-sm text-gray-600 hover:text-gray-50 hover:bg-gray-600 rounded mr-1 mb-1">
+                                        <?php echo $post["tag_name"]; ?>
+                                    </button>
                                 </div>
                             </div>
-                            <hr class="mt-3">
-                            <div class="react flex justify-between my-2 px-1">
-                                <button class="hover:text-blue-600 likes">
-                                    <i class="fa fa-heart like-icon"></i>
-                                    &nbsp;100 Loves
-                                </button>
-                                <button class="comments hover:text-blue-600">
-                                    12 Comments&nbsp;
-                                    <i class="fa fa-comments"></i>
-                                </button>
+
+                            <!---Post Loves and Comments--->
+
+                            <hr class='mt-3'>
+                            <div class='react flex justify-between my-2 px-1'>
+                                <!--likes -->
+                                <div class='love-wrapper'>
+                                    <?php
+                                    $likes = ($db->row_count('likes', "likes_post = {$post['post_id']}")) ? $db->row_count('likes', "likes_post = {$post['post_id']}") : '';
+
+                                    if (isset($user_id)) :
+                                        $loved = ($db->fetch_All('likes', null, null, "likes_post = {$post["post_id"]} && likes_author = {$user_id}")) ? "loved" : '';
+                                    ?>
+                                        <button class="hover:text-blue-600 loves logged <?php echo $loved; ?>" data-postId="<?php echo $post['post_id']; ?>">
+                                            <i class='fa fa-heart love-icon'></i>
+                                            &nbsp;<span class='love-count'><?php echo $likes; ?></span>&nbsp;Loves
+                                        </button>
+                                    <?php else : ?>
+                                        <button class='loves'>
+                                            <i class='fa fa-heart love-icon'></i>
+                                            &nbsp;<span class='love-count'><?php echo $likes; ?></span>&nbsp;Loves
+                                        </button>
+                                    <?php endif; ?>
+
+                                </div>
+                                <div class='comment-wrapper'><button class='comments'>
+                                        <?php
+                                        $comments = ($db->row_count('comments', "com_post = {$post['post_id']}")) ? $db->row_count('comments', "com_post = {$post['post_id']}") : '';
+                                        ?>
+                                        <span class='comment-count'><?php echo $comments; ?></span>&nbsp;Comments&nbsp;<i class='fa fa-comments'></i>
+                                    </button></div>
                             </div>
-                            <hr class="mb-3">
+                            <hr class='mb-3'>
                         </section>
 
 
+                        <!-- Comments Plate -->
                         <section class="comment-plate p-4 bg-white rounded-sm shadow-sm mt-8">
                             <h4 class="text-base uppercase  font-semibold mb-2 font-roboto">Post a comment</h4>
-                            <form action="#" class="mt-2">
-                                <textarea type="text" class="w-full border border-gray-200 py-3 px-5 text-sm  rounded-sm h-20 focus:outline-none focus:border-gray-400" placeholder="type your comment"></textarea>
-                                <div class="mt-2">
-                                    <button type="submit" class="text-white py-1 px-3 rounded-sm uppercase text-sm bg-blue-500 border border-blue-500 hover:text-blue-500 hover:bg-transparent transition">
-                                        Post
-                                    </button>
-                                </div>
-                            </form>
 
-                            <div class="space-y-5 mt-4">
-                                <div class="flex items-start border-b  pb-5 border-gray-200">
-                                    <div class="w-12 h-12 flex-shrink-0">
-                                        <img src="assets/images/avatar.png" class="w-full">
-                                    </div>
-                                    <div class="flex-grow pl-4">
-                                        <div class="commenter">
-                                            <h4 class="text-base  font-roboto">Rasel Ahmed</h4>
-                                            <p class="text-xs text-gray-400">
-                                                <time datetime="">9 April 2021 at 12:34 AM</time>
-                                            </p>
-                                        </div>
+                            <textarea type="text" class="w-full border border-gray-200 py-3 px-5 text-sm  rounded-sm h-20 focus:outline-none focus:border-gray-400 comment-input" name="comment-input" placeholder="type your comment"></textarea>
 
-                                        <p class="text-sm font-600 mt-2">Great article. Thanks</p>
-                                        <div class="reply">
-                                            <div class="flex gap-2 mt-2">
-                                                <button class="text-gray-500 px-1 text-xs border border-gray-200 rounded-sm shadow-sm hover:bg-blue-500 hover:text-white transition">Reply<button>
-                                                        <button class="text-gray-500 px-1 text-xs border border-gray-200 rounded-sm shadow-sm hover:bg-blue-500 hover:text-white transition">Delete</button>
-                                            </div>
-                                        </div>
-                                        <div class="reply-form">
+                            <button type="submit" class="text-white py-1 px-3 rounded-sm uppercase text-sm bg-blue-500 border border-blue-500 hover:text-blue-500 hover:bg-transparent transition post-comment-btn" data-postid="<?php echo $post["post_id"]; ?>">
+                                Post
+                            </button>
+
+
+
+                            <div class="space-y-5 mt-4" id="comments-container">
+
+                                <?php if ($data = $db->fetch_by_sql("SELECT c.com_id, c.com_details, c.com_author,c.com_on, u.user_name,u.user_pic FROM comments c JOIN user u ON c.com_author = u.user_id WHERE com_post = {$post_id} ORDER BY c.com_id DESC")): ?>
+                                    <?php foreach ($data as $com) : ?>
+                                        <div class="flex items-start border-b  pb-5 border-gray-200">
+
+                                            <figure class="w-12 h-12 flex-shrink-0">
+                                                <?php if ($com['user_pic'] != '') : ?>
+                                                    <img src="<?php echo IMG_ROOT . 'user/' . $com['user_pic']; ?>" class="w-full">
+                                                <?php else : ?>
+                                                    <img src="<?php echo IMG_ROOT; ?>user/avatar.png" class="w-full">
+                                                <?php endif; ?>
+                                            </figure>
+
+                                            <div class="flex-grow pl-4">
+                                                <div class="commenter">
+                                                    <h4 class="text-base  font-roboto"><?php echo $com['user_name']; ?></h4>
+                                                    <p class="text-xs text-gray-400">
+                                                        <time datetime="<?php echo $com["com_on"]; ?>">
+                                                        <?php echo date("M d, Y",strtotime($com['com_on'])); ?>
+                                                        &nbsp;at&nbsp;
+                                                         <?php echo date("g:i A",strtotime($com['com_on'])); ?>
+                                                        </time>
+                                                    </p>
+                                                </div>
+
+                                                <p class="text-sm font-600 mt-2">
+                                                    <?php echo $com['com_details']; ?>
+                                                </p>
+                                                <div class="reply">
+                                                    <div class="flex gap-2 mt-2">
+                                                        <button class="text-gray-500 px-1 text-xs border border-gray-200 rounded-sm shadow-sm hover:bg-blue-500 hover:text-white transition reply-btn">Reply<button>
+                                                        <?php 
+                                                        if(isset($user_id)):
+                                                        if($com["com_author"] == $user_id): ?>
+                                                                <button class="text-gray-500 px-1 text-xs border border-gray-200 rounded-sm shadow-sm hover:bg-blue-500 hover:text-white transition" data-comId="<?php echo $com['com_id']; ?>">Delete</button>
+                                                        <?php endif; endif; ?>
+                                                    </div>
+                                                </div>
+                                  <!-- <div class="reply-form">
                                             <form action="#" class="mt-2">
                                                 <div class="form-group">
                                                     <div class="input-message">
@@ -125,42 +166,15 @@
                                                 </div>
                                             </form>
 
+                                        </div> -->
+                                            </div>
                                         </div>
+                                    <?php endforeach; ?>
+                                    <div class="mt-3">
+                                          <button class="bg-gray-600 text-gray-100 rounded py-1 w-full text-center">View Previous Comments</button>
                                     </div>
-                                </div>
-                                <div class="flex items-start border-b  pb-5 border-gray-200">
-                                    <div class="w-12 h-12 flex-shrink-0">
-                                        <img src="assets/images/avatar-2.png" class="w-full">
-                                    </div>
-                                    <div class="flex-grow pl-4">
-                                        <h4 class="text-base  font-roboto">John Doe</h4>
-                                        <p class="text-xs text-gray-400">
-                                            <time datetime="">June 11, 2021</time>
-                                        </p>
-                                        <p class="text-sm font-600 mt-2">Great article. Thanks</p>
-                                        <div class="flex gap-2 mt-2">
-                                            <button class="text-gray-500 px-1 text-xs border border-gray-200 rounded-sm shadow-sm hover:bg-blue-500 hover:text-white transition">Reply</button>
-                                            <button class="text-gray-500 dark:text-gray-100 px-1 text-xs border border-gray-200 dark:border-gray-600 rounded-sm shadow-sm hover:bg-blue-500 hover:text-white transition">Delete</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="flex items-start">
-                                    <div class="w-12 h-12 flex-shrink-0">
-                                        <img src="assets/images/avatar.png" class="w-full">
-                                    </div>
-                                    <div class="flex-grow pl-4">
-                                        <h4 class="text-base  font-roboto">Rasel Ahmed</h4>
-                                        <p class="text-xs text-gray-400">9 Aprile 2021 at 12:34 AM</p>
-                                        <p class="text-sm font-600 mt-2">Great article. Thanks</p>
-                                        <div class="flex gap-2 mt-2">
-                                            <button class="text-gray-500 dark:text-gray-100 px-1 text-xs border border-gray-200 dark:text-gray-500 rounded-sm shadow-sm hover:bg-blue-500 hover:text-white transition">Reply</button>
-                                            <button class="text-gray-500 px-1 text-xs border border-gray-200 rounded-sm shadow-sm hover:bg-blue-500 hover:text-white transition">Delete</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mt-3">
-                                    <button class="bg-gray-600 text-gray-100 rounded py-1 w-full text-center">View Previous Comments</button>
-                                </div>
+                                
+                                    <?php endif; ?>
                             </div>
                         </section>
                     </article>

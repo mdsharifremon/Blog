@@ -1,29 +1,33 @@
 <?php
+
 /**
  * Main Template 
  * 
  */
- /** Configuration File */
- require_once "php/config.php";
- 
- /** User Sessions  */
- require_once "php/session.php";
+/** Configuration File */
+require_once "php/config.php";
 
- /** Header */
- require_once "template_parts/header.php";
+/** User Sessions  */
+require_once "php/session.php";
 
- /** Main Content */
- require_once "template_parts/main-content.php";
+/** Header */
+require_once "template_parts/header.php";
 
- /** Mobile Menu */
- require_once "template_parts/mobile-menu.php"; 
+/** Main Content */
+require_once "template_parts/main-content.php";
 
- /** Add Post */
- require_once "template_parts/add-post-modal.php";
+/** Mobile Menu */
+require_once "template_parts/mobile-menu.php";
 
- /** View Post */
- require_once "template_parts/view-post-modal.php";
+/** Add Post */
+require_once "template_parts/add-post-modal.php";
 
- /** Footer */
- require_once "template_parts/footer.php";
+/** View Post */
+require_once "template_parts/view-post-modal.php";
 
+/** Footer */
+require_once "template_parts/footer.php";
+
+?>
+</body>
+</html>

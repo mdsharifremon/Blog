@@ -38,14 +38,14 @@ if (isset($_POST['action']) && $_POST['action'] == 'fetchPosts') {
         $output .= "<div class='flex items-center justify-between mt-3'>";
 
                     /** Read More Button */
-                    $output.="<button class='bg-blue-500 hover:bg-blue-600 text-gray-100 text-sm rounded float-right mt-1 cursor-pointer modal-open' data-target='#ViewPostModal' style='padding:0.14rem 0.5rem;' data-id='{$row['post_id']}'>read more</a>";
+                    $output.="<div><button class='bg-blue-500 hover:bg-blue-600 text-gray-100 text-sm rounded float-right mt-1 cursor-pointer modal-open' data-target='#ViewPostModal' style='padding:0.14rem 0.5rem;' data-postId='{$row['post_id']}'>read more</button></div>";
 
         /** Edit and Delete Button */
         if (isset($user_id) && $user_id == $row['user_id']) :   
-         $output .= "<div>
-                        <button class='bg-white border border-gray-300 hover:bg-gray-600 text-gray-600 hover:text-gray-50 text-sm rounded transition-0.2 mx-1  cursor-pointer modal-open' data-target='#EditPostModal' style='padding:0.2rem 0.4rem;' data-id='{$row['post_id']}'>Edit Post</button>
+         $output .= "<div class='edit-delete-btn'>
+                        <button class='bg-white border border-gray-300 hover:bg-gray-600 text-gray-600 hover:text-gray-50 text-sm rounded transition-0.2 mx-1  cursor-pointer modal-open' data-target='#EditPostModal' style='padding:0.2rem 0.4rem;' data-postId='{$row['post_id']}'>Edit Post</button>
 
-                        <button class='bg-white border border-red-300 hover:bg-red-500 text-red-500 hover:text-gray-50 text-sm rounded transition-0.2  mx-1 cursor-pointer modal-open' data-target='#EditPostModal' style='padding:0.2rem 0.4rem;' data-id='{$row['post_id']}'>Delete Post</button>
+                        <button class='bg-white border border-red-300 hover:bg-red-500 text-red-500 hover:text-gray-50 text-sm rounded transition-0.2  mx-1 cursor-pointer delete-post' style='padding:0.2rem 0.4rem;' data-postId='{$row['post_id']}'>Delete Post</button>
                   </div>";
         endif;
         $output .="</div>"; // Button Container Close
@@ -86,13 +86,32 @@ if (isset($_POST['action']) && $_POST['action'] == 'fetchPosts') {
 
         /** Post Loves and Comments */
         $output .= "<hr class='mt-3'>
-                        <div class='react flex justify-between my-2 px-1'>
-                            <button class='hover:text-blue-600 likes'>
-                                <i class='fa fa-heart like-icon'></i>&nbsp;100 Loves
-                            </button>
-                            <button class='comments hover:text-blue-600'>
-                                12 Comments&nbsp;<i class='fa fa-comments'></i>
-                            </button>
+                        <div class='react flex justify-between my-2 px-1'>";
+                    /** Likes */
+                $output .= "<div class='love-wrapper'>";
+            $likes = ($db->row_count('likes', "likes_post = {$row['post_id']}"))? $db->row_count('likes', "likes_post = {$row['post_id']}") : '';
+
+      
+
+                        if(isset($user_id)):
+                $loved = ($db->fetch_All('likes', null, null, "likes_post = {$row["post_id"]} && likes_author = {$user_id}")) ? "loved" : '';
+
+                        $output .= "<button class='hover:text-blue-600 loves logged {$loved}' data-postId='{$row['post_id']}'>
+                                    <i class='fa fa-heart love-icon'></i>
+                                    &nbsp;<span class='love-count'>{$likes}</span>&nbsp;Loves
+                                </button>";
+                        else:
+                        $output .= "<button class='loves'>
+                                    <i class='fa fa-heart love-icon'></i>
+                                    &nbsp;<span class='love-count'>{$likes}</span> &nbsp;Loves
+                                </button>";
+                        endif;
+                    $output .= "</div>";
+                    $output .= "<div class='comment-wrapper'><button class='comments'>";
+
+            $comments = ($db->row_count('comments', "com_post = {$row['post_id']}")) ? $db->row_count('comments', "com_post = {$row['post_id']}") : '';
+                    $output .= "<span class='comment-count'>{$comments}</span>&nbsp;Comments&nbsp;<i class='fa fa-comments'></i>
+                            </button></div>
                         </div>
                     <hr class='mb-3'>";
 

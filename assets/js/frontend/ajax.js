@@ -52,9 +52,22 @@ jQuery(document).ready(function ($) {
 	}
 	fetchRecentPosts();
 
+	/** @Fetch_Popular_Posts */
+	function fetchPopularPosts() {
+		$.ajax({
+			url: "php/actions.php",
+			method: "POST",
+			data: { action: "fetchPopularPosts" },
+			success: function (data) {
+				$("#popular-posts").html(data);
+			},
+		});
+	}
+	fetchPopularPosts();
+
 
 	/**
-	 * @Insert Posts
+	 * @Insert_Posts_Ajax_Request
 	 */
 
 	$("#add-post-form").submit(function (e) {
@@ -82,30 +95,84 @@ jQuery(document).ready(function ($) {
 					fetchRecentPosts();
 				} else{	
 					$("#add-post-err").html(data);
-					// setTimeout(() => $(".alert-dismissible").remove(), 10000);
 					$("#add-post-btn").val("Save Post");
 				}
 			}
 		});
 	});
 
+	/**
+	 * @Fetch_Comments_Ajax_Request
+	 *  */
+	function fetchComments() {
+		$.ajax({
+			
+		})
+		
+	}
+	fetchComments();
+
+
+
 
 	/**
-	 * Write Comments
+	 * @Insert_Comments_Ajax_Request
 	 */
 	$(document).on("click", ".post-comment-btn", function () {
-		let postId = $(this).data("postId");
-		let comment = $(this).prev(".comment-input").val();
+		let postId = $(this).data("postid");
+		let inputField = $(this).prev(".comment-input");
+		let comment = inputField.val();
+		if (comment == '') {
+			Swal.fire({
+				title: "Please write some text to post a comment",
+				icon : "error"
+			})
+		} else {
+			$.ajax({
+				url: "php/actions.php",
+				method: "POST",
+				data: { postId: postId, comment: comment, action: "postComment" },
+				success: function (data) {
+					if (data == 1) {
+						inputField.val('').attr("placeholder", "Share more");
+						Swal.fire({
+							title: "Thanks! You've shared your thought",
+							icon: "success",
+						});
+					} else {
+						Swal.fire({
+							title: data,
+							icon: "error",
+						});
+					}
+				},
+			});	
+		}
+	});
 
+
+
+
+	/** @Loved_And_Unloved_Ajax_Request */
+	$(document).on("click", ".loves.logged", function () {
+		let postId = $(this).data("postid");
+		let type = 'add';
+		if ($(this).hasClass('loved')) {
+			type = 'sub';
+			$(this).removeClass('loved');
+		} else {
+			type = 'add';
+			$(this).addClass('loved');
+		}
 		$.ajax({
 			url: "php/actions.php",
 			method: "POST",
-			data: { postId: postId, comment: comment, action: "postComment" },
-			success: function (data) {
-				alert(data);
-			}
+			data: { postId: postId, type: type, action: "love" },
+			success: function (data) {}
 		})
-	});
+
+		
+	})
 
 
 

@@ -11,5 +11,3 @@
 <script src="<?php echo JS_ROOT; ?>vanilla.js"></script>
 <script src="<?php echo JS_ROOT; ?>frontend/style.js"></script>
 <script src="<?php echo JS_ROOT; ?>frontend/ajax.js"></script>
-</body>
-</html>

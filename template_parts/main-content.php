@@ -31,7 +31,7 @@
                        <?php if (isset($user_id)) : ?>
                            <button class="text-white py-1 px-3 rounded-sm uppercase text-sm bg-blue-500 border border-blue-500 hover:text-blue-500 hover:bg-transparent transition-0.3 modal-open" data-target="#addPostModal">
                                Share Your Thoughts
-                       </button>
+                           </button>
                        <?php else : ?>
                            <a href="login.php" class="text-white py-1 px-3 rounded-sm uppercase text-sm bg-blue-500 border border-blue-500 hover:text-blue-500 hover:bg-transparent transition-0.3">
                                Login first to Write post
@@ -55,7 +55,24 @@
                    <!-- Popular posts -->
                    <div class="w-full bg-white shadow-sm rounded-sm p-4 ">
                        <h3 class="text-xl font-semibold text-gray-700 mb-3 font-roboto">Popular Posts</h3>
-                       <?php require_once "template_parts/popular-posts.php"; ?>
+                       <div class="space-y-4" id="popular-posts">
+                           <!-- <article class="popular-posts">
+                          <a href="#" class="flex group">
+                               <figure class="flex-shrink-0">
+                                   <img src="assets/images/img-5.jpg" class="h-14 w-20 lg:w-14 xl:w-20 rounded object-cover">
+                                </figure>
+                               <div class="flex-grow pl-3">
+                                  <h5 class="text-md leading-5 block font-roboto font-semibold  transition group-hover:text-blue-500">
+                                   Team Bitbose geared up to attend Blockchain
+                                 </h5>
+                                 <div class="flex text-gray-400 text-sm items-center">
+                                       <span class="mr-1 text-xs"><i class="far fa-clock"></i></span>
+                                               June 11, 2021
+                                 </div>
+                              </div>
+                           </a>
+                       </article> -->
+                       </div>
                    </div>
                    <!-- Recent posts -->
                    <div class="w-full mt-8 bg-white shadow-sm rounded-sm p-4 ">

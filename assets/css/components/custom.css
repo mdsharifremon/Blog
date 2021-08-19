@@ -75,7 +75,7 @@ section.full-content{
     -webkit-transform:scale(1.5);
     -moz-transform:scale(1.5);
 }
-button.likes .like-icon{
+button.loves.logged .love-icon{
     transform:scale(1);
     -webkit-transform:scale(1);
     -moz-transform:scale(1);
@@ -84,7 +84,7 @@ button.likes .like-icon{
     -moz-transition:all 0.5s ease-in-out;
 }
 
-button.likes:hover > .like-icon{
+button.loves.logged:hover > .love-icon{
     transform:scale(1.5);
     -webkit-transform:scale(1.5);
     -moz-transform:scale(1.5);
@@ -100,4 +100,8 @@ button.likes:hover > .like-icon{
   font-size:14px;
 }
 
+}
+
+.loves.loved > .love-icon{
+    color:#2563EB;
 }
