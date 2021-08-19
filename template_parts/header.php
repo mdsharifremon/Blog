@@ -30,7 +30,7 @@ $db = new Database();
         <div class="wrapper px-4 mx-auto flex justify-between  items-center py-3">
             <!-- logo -->
             <div class="lg:w-44 w-40">
-                <a href="index.html">
+                <a href="index.php">
                     <img src="assets/images/logo.png" alt="logo" class="w-full">
                 </a>
             </div>

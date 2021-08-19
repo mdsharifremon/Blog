@@ -1,6 +1,6 @@
 jQuery(document).ready(function ($) {
 	/** @login  */
-	$("#login-btn").click(function (e) {
+	$(document).on('click',"#login-btn", function (e) {
 		if ($("#login-form")[0].checkValidity()) {
 			e.preventDefault();
 			let btn = $(this);
@@ -16,7 +16,7 @@ jQuery(document).ready(function ($) {
 						location.href = "index.php";
 					} else {
 						$("#login-error").html(data);
-						setTimeout(() => $(".alert-dismissible").remove(), 15000);
+						// setTimeout(() => $(".alert-dismissible").remove(), 15000);
 						btn.val("Login");
 					}
 				},
@@ -82,11 +82,29 @@ jQuery(document).ready(function ($) {
 					fetchRecentPosts();
 				} else{	
 					$("#add-post-err").html(data);
-					setTimeout(() => $(".alert-dismissible").remove(), 10000);
+					// setTimeout(() => $(".alert-dismissible").remove(), 10000);
 					$("#add-post-btn").val("Save Post");
 				}
 			}
 		});
+	});
+
+
+	/**
+	 * Write Comments
+	 */
+	$(document).on("click", ".post-comment-btn", function () {
+		let postId = $(this).data("postId");
+		let comment = $(this).prev(".comment-input").val();
+
+		$.ajax({
+			url: "php/actions.php",
+			method: "POST",
+			data: { postId: postId, comment: comment, action: "postComment" },
+			success: function (data) {
+				alert(data);
+			}
+		})
 	});
 
 

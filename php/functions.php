@@ -72,7 +72,10 @@ function show_msg($type = null, $msg = null)
      * $type = message type (warning, info, danger, success), 
      * $msg = message
      * */
-    echo  "<div class='alert alert-{$type} alert-dismissible' role='alert'><p>{$msg}</p>                      </div>";
+    echo  "<div class='alert alert-{$type} alert-dismissible' role='alert'>
+              <p>{$msg}</p> 
+              <button type='button' class='alert-close' data-dismiss='alert' aria-label='Close'>X</button>                     
+           </div>";
   }
 }
 

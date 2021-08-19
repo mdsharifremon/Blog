@@ -6,8 +6,8 @@
 
 require_once "php/config.php";
 require_once "php/session.php";
-if(isset($_SESSION['user']) && $_SESSION['user'] == 'yes'){
-  header('Location:'. BASE_URL);
+if (isset($_SESSION['user']) && $_SESSION['user'] == 'yes') {
+  header('Location:' . BASE_URL);
 }
 
 ?>
@@ -103,8 +103,16 @@ if(isset($_SESSION['user']) && $_SESSION['user'] == 'yes'){
     </div>
   </div>
   <script src="<?php echo JS_ROOT; ?>jquery.min.js"></script>
+
   <script>
     jQuery(document).ready(function($) {
+      /** Alert  */
+      $(document).on("click", ".alert-close", function() {
+        let alertBox = $(this).parent(".alert-dismissible");
+        alertBox.css("opacity", "0.5")
+        setTimeout(() => alertBox.remove(),300);
+      });
+
 
       /** @SignUp */
       $('#signup-btn').click(function(e) {
@@ -128,7 +136,7 @@ if(isset($_SESSION['user']) && $_SESSION['user'] == 'yes'){
 
               } else {
                 $('#signup-error').html(data);
-                setTimeout(() => $('.alert-dismissible').remove(), 10000);
+                // setTimeout(() => $('.alert-dismissible').remove(), 10000);
                 btn.val('Submit');
               }
 
@@ -155,7 +163,7 @@ if(isset($_SESSION['user']) && $_SESSION['user'] == 'yes'){
 
               } else {
                 $('#login-error').html(data);
-                setTimeout(() => $('.alert-dismissible').remove(), 10000);
+                // setTimeout(() => $('.alert-dismissible').remove(), 10000);
                 btn.val('Login');
               }
             }

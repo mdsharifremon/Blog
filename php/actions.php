@@ -31,6 +31,9 @@ require_once "inc/action-add-post.php";
 /** @param Fetch_Recent_Posts */
 require_once "inc/fetch-recent-ports.php";
 
+/** @param Comments */
+require_once "inc/action-comments.php";
+
 
 
 
