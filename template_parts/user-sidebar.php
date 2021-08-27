@@ -48,7 +48,7 @@
             </p>
 
             <a href="" class="block py-1 text-gray-600 hover:text-blue-600 transition-0.2 text-base">
-                <i class="fas fa-sign-out-alt text-blue-500"></i>
+                <i class="fa fa-eye text-blue-500"></i>
                 <span>&nbsp;View Profile</span>
             </a>
             <a href="logout.php" class="block py-1 text-gray-600 hover:text-blue-600 transition-0.2 text-base">
