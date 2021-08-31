@@ -1,12 +1,13 @@
-<?php
-
+<?php 
 
 /**
  * @param Fetch_Posts
  ***********************/
-if (isset($_POST['action']) && $_POST['action'] == 'fetchPosts') {
+if (isset($_POST['action']) && $_POST['action'] == 'postByCategory') {
 
-    $sql = "SELECT p.post_id, p.post_title, p.post_desc, p.post_image,p.post_created_on,p.post_edited_on,t.tag_name,c.cat_name,u.user_id,u.user_name, u.user_pic, u.user_profession FROM posts p JOIN category c ON p.post_cat = c.cat_id JOIN tag t ON p.post_tag = t.tag_id JOIN user u ON p.post_author = u.user_id ORDER BY p.post_id DESC";
+    $cat_id = validate($_POST['catId']);
+
+    $sql = "SELECT p.post_id, p.post_title, p.post_desc, p.post_image,p.post_created_on,p.post_edited_on,t.tag_name,c.cat_name,u.user_id,u.user_name, u.user_pic, u.user_profession FROM posts p JOIN category c ON p.post_cat = c.cat_id JOIN tag t ON p.post_tag = t.tag_id JOIN user u ON p.post_author = u.user_id WHERE p.post_cat = {$cat_id} ORDER BY p.post_id DESC";
 
 
     $output = '';
@@ -138,14 +139,3 @@ if (isset($_POST['action']) && $_POST['action'] == 'fetchPosts') {
     }
     echo $output;
 }
-
-
-?>    
-   
-            
- 
-        
-
-        
-        
-  

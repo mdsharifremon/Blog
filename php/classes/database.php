@@ -176,6 +176,20 @@ class Database{
                 }
             }
         }
+    /** 
+     * @param Update_By_SQL 
+     * @param update($sql)
+     ************************************/
+    function update_by_sql($sql = null){
+        if($sql != null){
+            if ($this->mysqli->query($sql)) {
+                return true;
+            } else {
+                echo mysqli_error($this->conn);
+                return false;
+            }
+        }
+    }
 
 
 

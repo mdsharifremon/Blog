@@ -30,13 +30,12 @@
 }
 
 .main-content::-webkit-scrollbar{
-    width:0px;
+    width:8px;
     transition:all 0.2s linear;
     -webkit-transition:all 0.2s line;
     -moz-transition:all 0.2s line;
-}
-.main-content:hover::-webkit-scrollbar{
-     width:8px;
+    opacity:0;
+    visibility:hidden;
 }
 
 
@@ -51,6 +50,10 @@
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
+}
+.main-content:hover::-webkit-scrollbar{
+     opacity:1;
+     visibility:visible;
 }
 
 

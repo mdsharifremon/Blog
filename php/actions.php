@@ -34,6 +34,16 @@ require_once "inc/fetch-recent-ports.php";
 /** @param Comments */
 require_once "inc/action-comments.php";
 
+/** @param View_Post_By_PostId */
+require_once "inc/action-view-post.php";
 
+/** @param Delete_POST_&_COMMENTS */
+require_once 'inc/action-delete.php';
+ 
+/** @param Fetch_Posts_By_Category */
+require_once "inc/action-fetch-posts-by-cat.php";
+
+/** @param Fetch_Posts_By_Tag */
+require_once "inc/action-fetch-posts-by-tag.php";
 
 

@@ -24,10 +24,14 @@ if (isset($_FILES['post-image'])) {
     // Post Category
     if (isset($_POST['post-category'])) {
         $post_category = validate($_POST['post-category']);
+    }else{
+        $post_category = 22;
     }
     // Post Tags
     if (isset($_POST['post-tag'])) {
         $post_tag = validate($_POST['post-tag']);
+    }else{
+        $post_tag = 6;
     }
 
     // Validate Image Upload
@@ -70,7 +74,12 @@ if (isset($_FILES['post-image'])) {
 
         if (empty($err)) {
             $arr = ['post_title' => $post_title, 'post_desc' => $post_desc, 'post_cat' => $post_category, 'post_tag' => $post_tag, 'post_author' => $user_id];
-           if( $db->insert('posts', $arr)){ echo 1; }else{ echo 0;}
+           if( $db->insert('posts', $arr)){
+                $db->update_by_sql("UPDATE category SET posts = (posts + 1) WHERE cat_id = {$post_category}");
+               echo 1; 
+            }else{ 
+                echo 0;
+            }
         } else {
             for ($i = 0; $i < count($err); $i++) {
                 show_msg("danger", $err[$i]);
